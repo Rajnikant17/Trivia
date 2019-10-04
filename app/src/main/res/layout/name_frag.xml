@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:anndroid="http://schemas.android.com/tools">
+    <!--  <RelativeLayout
+          android:id="@+id/updatelayout_3"
+          android:layout_width="match_parent"
+          android:layout_height="60dp">
+          <TextView
+              android:text="INFINITE REWARDS"
+              android:textColor="#ffffff"
+              android:textSize="20sp"
+              android:layout_centerInParent="true"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+      </RelativeLayout> -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/firstfragmentquestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="What is your name ?"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edit_nam"
+                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="50dp"
+                android:hint="name"
+                android:gravity="center_horizontal"
+                android:background="@color/transparent"
+                android:layout_height="40dp"></EditText>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="50dp"
+                android:background="@color/light_grey"
+                ></View>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

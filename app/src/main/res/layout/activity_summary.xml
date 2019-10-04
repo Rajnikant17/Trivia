@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/parentlayout"
+    tools:context=".Activities.SummaryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/ligher_black"
+            ></TextView>
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/ligher_black"
+            android:text="Rajni"
+            ></TextView>
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/ligher_black"
+            android:text=";"
+            ></TextView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here are the answers selected:"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Who is the best cricketer in the world ?"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/ligher_black"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/tv_bestplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sachin"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What are the colors in the national flag ?"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/ligher_black"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/tv_flagcolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="white"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <Button
+        android:id="@+id/bt_finish"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/top_bottom_round_background"
+        android:backgroundTint="@color/light_green"
+        android:text="Finish"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="30dp"
+        />
+</LinearLayout>

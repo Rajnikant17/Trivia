@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:anndroid="http://schemas.android.com/tools">
+  <!--  <RelativeLayout
+        android:id="@+id/updatelayout_3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:text="INFINITE REWARDS"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout> -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/firstfragmentquestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Who is the best cricketer in the world ?"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/firstfragmentquestion"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Sachin Tendulkar"
+                    android:id="@+id/radio_Sachin"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Virat Kolli"
+                    android:id="@+id/radio_virat"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Adam Gilchirst"
+                    android:id="@+id/radio_adam"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Jacques Kallis"
+                    android:id="@+id/radio_jacques"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </RadioGroup>
+          <!--  <LinearLayout
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="35dp"
+                android:id="@+id/radiogroupquestions"
+                android:layout_below="@+id/firstfragmentquestion"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="str1"
+                    android:id="@+id/radio1"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="str2"
+                    android:id="@+id/radio2"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="str3"
+                    android:textSize="16sp"
+                    android:id="@+id/radio3"
+
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="str4"
+                    android:id="@+id/radio4"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+
+                    />
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="str5"
+                    android:id="@+id/radio5"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+
+                    />
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="str6"
+                    android:id="@+id/radio6"
+
+                    android:visibility="gone"
+                    android:textSize="16sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>  -->
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
