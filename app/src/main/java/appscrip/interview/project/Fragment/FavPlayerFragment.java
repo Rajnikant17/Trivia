@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import appscrip.interview.project.Presenter.PresenterForFavPlayer;
 import appscrip.interview.project.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,31 +39,8 @@ public class FavPlayerFragment extends Fragment {
 
     public Boolean callmethod(Fragment fragment)
     {
-        if(radio_Sachin.isChecked() || radio_virat.isChecked() || radio_adam.isChecked() || radio_jacques.isChecked())
-        {
-            //bundle=getArguments();
-            if (radio_Sachin.isChecked())
-            {
-                bundle.putString("favplayer", radio_Sachin.getText().toString());
-            }
-            else if (radio_virat.isChecked())
-            {
-                bundle.putString("favplayer", radio_virat.getText().toString());
-            }
-            else if(radio_adam.isChecked())
-            {
-                bundle.putString("favplayer", radio_adam.getText().toString());
-            }
-            else
-            {
-                bundle.putString("favplayer", radio_jacques.getText().toString());
+        PresenterForFavPlayer presenterForFavPlayer = new PresenterForFavPlayer();
+       return presenterForFavPlayer.callPresenter(bundle,fragment, radio_Sachin, radio_virat,radio_adam,radio_jacques);
 
-            }
-            fragment.setArguments(bundle);
-            return false;
-        }
-        else {
-            return true;
-        }
     }
 }

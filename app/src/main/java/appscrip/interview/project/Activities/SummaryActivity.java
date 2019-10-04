@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import appscrip.interview.project.Presenter.PresenterForSummaryActivity;
 import appscrip.interview.project.R;
 import appscrip.interview.project.utils.ModelForHistory;
 import butterknife.BindView;
@@ -37,51 +38,21 @@ public class SummaryActivity extends AppCompatActivity {
     TextView tv_flagcolor;
     @BindView(R.id.bt_finish)
     Button bt_finish;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
-        Bundle bundle=getIntent().getExtras();
+         bundle=getIntent().getExtras();
         txt_name.setText(bundle.getString("name"));
         tv_bestplayer.setText(bundle.getString("favplayer"));
-        StringBuilder result = new StringBuilder();
-        Log.d("ghdtjhdt",String.valueOf(bundle.getStringArrayList("flagcolors").size()));
-        for(String string : bundle.getStringArrayList("flagcolors")) {
-            result.append(string);
-            result.append(",");
-        }
-        String Flagcolors = result.length() > 0 ? result.substring(0, result.length() - 1): "";
-        tv_flagcolor.setText(Flagcolors);
 
-        ModelForHistory modelForHistory=new ModelForHistory();
-        modelForHistory.setName(txt_name.getText().toString());
-        modelForHistory.setFavplayer(tv_bestplayer.getText().toString());
-        modelForHistory.setFlagcolor(tv_flagcolor.getText().toString());
-        Date currentTime = Calendar.getInstance().getTime();
-        SimpleDateFormat dateStampFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
-        modelForHistory.setDate(dateStampFormat.format(currentTime));
+        tv_flagcolor.setText(callStringBuilder());
 
-        SharedPreferences sharedPreferences=getSharedPreferences("appscrip",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        Type type=new TypeToken<List<ModelForHistory>>(){}.getType();
-        Gson gson=new Gson();
-        List<ModelForHistory> modelForHistoryList = gson.fromJson(sharedPreferences.getString("history", null), type);
-        if(modelForHistoryList==null)
-        {
-            modelForHistoryList =new ArrayList<>();
-            modelForHistoryList.add(modelForHistory);
-        }
+        PresenterForSummaryActivity presenterForSummaryActivity=new PresenterForSummaryActivity();
+        presenterForSummaryActivity.callPresenter(SummaryActivity.this,bundle,txt_name.getText().toString(),tv_bestplayer.getText().toString(),tv_flagcolor.getText().toString());
 
-        else
-        {
-            modelForHistoryList.add(modelForHistory);
-        }
-
-        //List<ModelForHistory>  modelForHistoryList=new ArrayList<>();
-       // modelForHistoryList.add
-        editor.putString("history",gson.toJson(modelForHistoryList));
-        editor.apply();
 
         bt_finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,11 +62,16 @@ public class SummaryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-      /*  StringBuilder stringBuilder=new StringBuilder();
-        for(int i=0;i<bundle.getStringArrayList("flagcolors").size();i++)
-        {
+    }
 
-        } */
+    public String callStringBuilder()
+    {
+        StringBuilder result = new StringBuilder();
+        for(String string : bundle.getStringArrayList("flagcolors")) {
+            result.append(string);
+            result.append(",");
+        }
+        return  result.length() > 0 ? result.substring(0, result.length() - 1): "";
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -9,12 +9,14 @@ import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import appscrip.interview.project.Activities.SummaryActivity;
+import appscrip.interview.project.Presenter.PresenterForFlagColor;
 import appscrip.interview.project.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,37 +42,9 @@ public class FlagColorFragment extends Fragment {
 
     public  Boolean  callmethod()
     {
-        if(checkbox_white.isChecked() || checkbox_yellow.isChecked() || checkbox_orange.isChecked() || checkbox_green.isChecked())
-        {
-            bundle=getArguments();
-            List<String> flagColorslist=new ArrayList<>();
-            if (checkbox_white.isChecked())
-            {
-                flagColorslist.add(checkbox_white.getText().toString());
-            }
-             if (checkbox_yellow.isChecked())
-            {
-                flagColorslist.add(checkbox_yellow.getText().toString());
-            }
-             if(checkbox_orange.isChecked())
-            {
-                flagColorslist.add(checkbox_orange.getText().toString());
-            }
+        PresenterForFlagColor presenterForFlagColor=new PresenterForFlagColor();
+        return presenterForFlagColor.callPresenter(getActivity(),bundle,checkbox_white, checkbox_yellow,checkbox_orange,checkbox_green);
 
-             if(checkbox_green.isChecked())
-             {
-                flagColorslist.add(checkbox_green.getText().toString());
-
-            }
-            bundle.putStringArrayList("flagcolors", (ArrayList<String>) flagColorslist);
-            Intent intent=new Intent(getActivity(), SummaryActivity.class);
-            intent.putExtras(bundle);
-            startActivity(intent);
-            return false;
-        }
-        else {
-            return true;
-        }
 
     }
 }

@@ -16,12 +16,13 @@ import android.widget.RelativeLayout;
 import appscrip.interview.project.Fragment.FavPlayerFragment;
 import appscrip.interview.project.Fragment.FlagColorFragment;
 import appscrip.interview.project.Fragment.NameFragment;
+import appscrip.interview.project.Presenter.PresenterForHomepage;
 import appscrip.interview.project.R;
 import appscrip.interview.project.utils.CustomSnackBar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PresenterForHomepage.CallCustomSnackbar {
     @BindView(R.id.bt_next)
     Button bt_next;
     @BindView(R.id.parentlayout)
@@ -31,11 +32,13 @@ public class MainActivity extends AppCompatActivity {
     FavPlayerFragment favPlayerFragment;
     FlagColorFragment flagColorFragment;
     Boolean checkEmptyData=false;
+    public static MainActivity mainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mainActivity=MainActivity.this;
         fragmentManager=getSupportFragmentManager();
         nameFragment=new NameFragment();
         favPlayerFragment = new FavPlayerFragment();
@@ -44,48 +47,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.container,nameFragment,"namefrag");
         fragmentTransaction.addToBackStack("namefrag");
         fragmentTransaction.commit();
-
+        PresenterForHomepage presenterForHomepage=new PresenterForHomepage();
         bt_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment visibleFragment = getCurrentFragment();
-                String tag = visibleFragment.getTag();
-                //Execute if Fragment is NameFragment
-                if (tag == "namefrag") {
-                    if (nameFragment.callmethod(favPlayerFragment)) {
-                        CustomSnackBar customSnackBar=new CustomSnackBar();
-                         customSnackBar.customSnackbar(parentlayout,"Please provide name.",MainActivity.this);
-                    } else {
-                        FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-                       // favPlayerFragment = new FavPlayerFragment();
-                        fragmentTransaction1.replace(R.id.container, favPlayerFragment, "favplayerFrag");
-                        fragmentTransaction1.addToBackStack("favplayerFrag");
-                        fragmentTransaction1.commit();
-                    }
-                }
 
-                //Execute if Fragment is Favourite player fragment
-                else if (tag == "favplayerFrag") {
-
-                    if (favPlayerFragment.callmethod(flagColorFragment)) {
-                        CustomSnackBar customSnackBar=new CustomSnackBar();
-                        customSnackBar.customSnackbar(parentlayout,"Please select your answer.",MainActivity.this);
-                    }
-                    else {
-                        FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
-                       // flagColorFragment = new FlagColorFragment();
-                        fragmentTransaction2.replace(R.id.container, flagColorFragment, "flagColorFrag");
-                        fragmentTransaction2.addToBackStack("flagColorFrag");
-                        fragmentTransaction2.commit(); }
-                }
-
-                //Execute if Fragment is Flag Colour fragment
-                else {
-                    if (flagColorFragment.callmethod()) {
-                        CustomSnackBar customSnackBar=new CustomSnackBar();
-                        customSnackBar.customSnackbar(parentlayout,"Please select your answer.",MainActivity.this);
-                    }
-                }
+                presenterForHomepage.callPresenter(fragmentManager,MainActivity.this,nameFragment,favPlayerFragment,flagColorFragment);
             }
         });
     }
@@ -122,5 +89,12 @@ public class MainActivity extends AppCompatActivity {
         else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void callCustomSnackbar(String msg) {
+        CustomSnackBar customSnackBar=new CustomSnackBar();
+         customSnackBar.customSnackbar(parentlayout,msg, MainActivity.this);
+
     }
 }
