@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary2">#EB202D</color>
+    <color name="colorPrimaryDark2">#B62121</color>
+    <color name="colorAccent">#197FBD</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="dark_grey">#D3D3D3</color>
+    <color name="sky_grey">#AAAAAA</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimaryNew">#254254</color>
+    <color name="colorPrimary">#319ACE</color>
+    <color name="colorPrimarylight">#98cce6</color>
+    <color name="colorPrimaryDark">#197FBD</color>
+    <color name="dark_green">#149671</color>
+    <color name="navyblue">#01579b</color>
+    <color name="darkblue">#243346</color>
+    <color name="abc">#009688</color>
+    <color name="def">#00BCD4</color>
+    <color name="light_grey">#dddddd</color>
+    <color name="ultra_light_gray">#F0F0F0</color>
+    <color name="smoky_grey">#e3e3e3</color>
+    <color name="moredarkblue">#0F3255</color>
+    <color name="green">#02C508</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_sky_blu"> #0079A2</color>
+    <color name="light_sky_blu"> #E0EFF4</color>
+    <color name="light_orange">#F98B60</color>
+    <color name="light_blue"> #E8F1F3</color>
+    <color name="very_light_blue">#E0EDEE</color>
+    <color name="more_light_blue">#DEEDFB</color>
+    <color name="light_green">#26a69a</color>
+    <color name="darkgreen">#149671</color>
+    <color name="more_light_grey">#F7F8FA</color>
+    <color name="text_light_grey">#AAAAAA</color>
+    <color name="ligher_black">#4c4c4c</color>
+</resources>
